@@ -1,21 +1,33 @@
-const analyzer = {  
+const analyzer = {
+
   getWordCount: (text) => {
-    //TODO: esta função deve retornar a contagem de palavras que estão no parâmetro text do tipo string`.
+    const words = text.trim().split(/\s+/);
+    return words.length;
   },
+
   getCharacterCount: (text) => {
-    //TODO: esta função deve retornar a contagem de caracteres que estão no parâmetro text do tipo string`.
+    return text.length;
   },
+
   getCharacterCountExcludingSpaces: (text) => {
-    //TODO: esta função deve retornar a contagem de caracteres excluindo espaços e sinais de pontuação que estão no parâmetro text do tipo string`.
+    const charactersWithoutSpaces = text.replace(/\s/g, '');
+    return charactersWithoutSpaces.length;
   },
-  getAverageWordLength: (text) => {    
-    //TODO: esta função deve retornar o comprimento médio das palavras que estão no parâmetro text do tipo string. Use 2 casas decimais.`.
+
+  getAverageWordLength: (text) => {
+    const words = text.trim().split(/\s+/);
+    const totalCharacters = words.join('').length;
+    return totalCharacters / words.length || 0;
   },
   getNumberCount: (text) => {
-    //TODO: esta função deve retornar quantos números estão no parâmetro text do tipo string`.
+    const numbers = text.match(/\d+/g);
+    return numbers ? numbers.length : 0;
   },
+  
   getNumberSum: (text) => {
-    //TODO: esta função deve retornar a soma de todos os números que estão no parâmetro text do tipo string`.
+    const numbers = text.match(/\d+/g);
+    if (!numbers) return 0;
+    return numbers.reduce((acc, num) => acc + parseInt(num, 10), 0);
   },
 };
 
