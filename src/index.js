@@ -15,12 +15,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const updateCounters = () => {
     const text = userInput.value;
-    counters.wordCount.textContent = `Contagem de palavras: ${analyzer.getWordCount(text)}`;
-    counters.characterCount.textContent = `Contagem de caracteres: ${analyzer.getCharacterCount(text)}`;
-    counters.characterNoSpacesCount.textContent = `Contagem de caracteres (excluindo espaços): ${analyzer.getCharacterCountExcludingSpaces(text)}`;
-    counters.numberCount.textContent = `Contagem de números: ${analyzer.getNumberCount(text)}`;
-    counters.numberSum.textContent = `Soma total dos números: ${analyzer.getNumberSum(text)}`;
-    counters.wordLengthAverage.textContent = `Comprimento médio das palavras: ${analyzer.getAverageWordLength(text)}`;
+    
+    if (text.trim() === '') {
+      Object.values(counters).forEach(counter => {
+        counter.innerText = counter.innerText.replace(/\d+/, '0');
+      });
+      return;
+    }
+
+    counters.wordCount.innerText = `Contagem de palavras: ${analyzer.getWordCount(text)}`;
+    counters.characterCount.innerText = `Contagem de caracteres: ${analyzer.getCharacterCount(text)}`;
+    counters.characterNoSpacesCount.innerText = `Contagem de caracteres (excluindo espaços): ${analyzer.getCharacterCountExcludingSpaces(text)}`;
+    counters.numberCount.innerText = `Contagem de números: ${analyzer.getNumberCount(text)}`;
+    counters.numberSum.innerText = `Soma total dos números: ${analyzer.getNumberSum(text)}`;
+    counters.wordLengthAverage.innerText = `Comprimento médio das palavras: ${analyzer.getAverageWordLength(text).toFixed(2)}`;
   };
 
   userInput.addEventListener('input', updateCounters);
