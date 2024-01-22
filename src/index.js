@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.characterNoSpacesCount.innerText = `Contagem de caracteres (excluindo espaços): ${analyzer.getCharacterCountExcludingSpaces(text)}`;
     counters.numberCount.innerText = `Contagem de números: ${analyzer.getNumberCount(text)}`;
     counters.numberSum.innerText = `Soma total dos números: ${analyzer.getNumberSum(text)}`;
-    counters.wordLengthAverage.innerText = `Comprimento médio das palavras: ${analyzer.getAverageWordLength(text).toFixed(2)}`;
+    counters.wordLengthAverage.innerText = `Comprimento médio das palavras: ${analyzer.getAverageWordLength(text)}`;
   };
 
   userInput.addEventListener('input', updateCounters);

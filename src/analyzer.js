@@ -13,25 +13,37 @@ const analyzer = {
 
   getCharacterCountExcludingSpaces: (text) => {
     if (!text || typeof text !== 'string') return 0;
-    const charactersWithoutSpaces = text.replace(/\s/g, '');
-    return charactersWithoutSpaces.length;
+    let count = 0;
+    for (let i = 0; i < text.length; i++) {
+      const currentChar = text[i];
+      if (/\w/.test(currentChar)) {
+        count++;
+      }
+    }
+    return count;
   },
 
-  getAverageWordLength: (text) => {
-    const words = text.trim().split(/\s+/);
-    const totalCharacters = words.join('').length;
-    return totalCharacters / words.length || 0;
-  },
   getNumberCount: (text) => {
-    const numbers = text.match(/\d+/g);
-    return numbers ? numbers.length : 0;
+    if (!text || typeof text !== 'string') return 0;
+    const numbers = text.match(/[-+]?\b\d*\.?\d+\b/g);
+    if (!numbers) return 0;
+    return numbers.length;
   },
   
   getNumberSum: (text) => {
-    const numbers = text.match(/\d+/g);
+    if (!text || typeof text !== 'string') return 0;
+    const numbers = text.match(/[-+]?\b\d+(\.\d+)?\b/g);
     if (!numbers) return 0;
-    const filteredNumbers = numbers.filter(num => /^\d+$/.test(num));
-    return filteredNumbers.reduce((acc, num) => acc + parseInt(num, 10), 0);
+    const filteredNumbers = numbers.map(num => parseFloat(num)).filter(num => !isNaN(num));
+    return filteredNumbers.reduce((acc, num) => acc + num, 0);
+  },
+
+  getAverageWordLength: (text) => {
+    if (!text || typeof text !== 'string') return 0;
+    const words = text.trim().split(/\s+/);
+    const totalCharacters = words.join('').length;
+    const averageLength = totalCharacters / words.length;
+    return parseFloat(averageLength.toFixed(2));
   },
 };
 
