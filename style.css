@@ -1,0 +1,62 @@
+body {
+  text-align: center; 
+  margin: 0;
+  font-family: "Arial";
+  font-size: 20px;
+  background: linear-gradient(to bottom, #3498db, #2c3e50);
+  height: 100vh;
+}
+  
+div {
+  display: inline-block;
+  text-align: left;
+  color: rgb(173, 235, 245);
+}
+  
+textarea {
+  width: 300px;
+  height: 150px;
+}
+  
+footer {
+  margin-top: 20px;
+  color: rgb(224, 240, 241);
+  font-size: 12px;
+}
+
+header {
+  font-family: "Arial";
+  font-size: 24px;
+  color: rgb(4, 2, 31);
+}
+
+textarea[name="user-input"] {
+  border: 2px solid #08012c;
+  color: green;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#reset-button {
+  background-color: #2a1369;
+  color: white;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+  
+.counter {
+  background: #2a1369;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 8px;
+  margin: 4px;
+  font-size: 12px;
+  font-family: "Arial";
+}

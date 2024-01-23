@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <title>Analisador de texto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <script src="index.js" type="module"></script>
+  
+  <header>
+    <h1>Digite seu texto aqui:</h1>
+  </header>
+ 
+  <div>
+    <textarea name="user-input"></textarea>
+    <button type="reset" id="reset-button">Limpar</button>
+  </div>
+
+  <div>
+    <ul>
+      <li class="counter" data-testid="word-count">Contagem de palavras:</li>
+      <li class="counter" data-testid="character-count">Contagem de caracteres:</li>
+      <li class="counter" data-testid="character-no-spaces-count">Contagem de caracteres (excluindo espaços e sinais de pontuação):</li>
+      <li class="counter" data-testid="number-count">Contagem de números:</li>
+      <li class="counter" data-testid="number-sum">Soma total do números:</li>
+      <li class="counter" data-testid="word-length-average">Comprimento médio das palavras:</li>
+    </ul>
+  </div>
+  
+  <footer>
+    <p><blockquote>Feito por: Érika Alves<sup>®</sup></blockquote></p>
+  </footer>
+  </body>
+</html>
